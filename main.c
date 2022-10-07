@@ -14,9 +14,10 @@ int main() {
     // Read information from console
     enum GameType gameType;
     scanf("%d", &gameType);
+    gameType--; // Converts gameType to 0/1 for enum
     
     // Process input
-    if (gameType != 1 && gameType != 2) {
+    if (gameType != pvp && gameType != computer) {
         printf("Invalid input; exiting...");
         return 1;
     }
