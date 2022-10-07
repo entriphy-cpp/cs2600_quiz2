@@ -4,6 +4,9 @@
 
 enum GameType { pvp, computer };
 
+char board[3][3] = {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '};
+void printBoard();
+
 int main() {
     // Prompt user for game they wish to play
     printf("Welcome to Tic Tac Toe!\n");
@@ -23,12 +26,11 @@ int main() {
     }
     printf("You have entered %s\n", gameType == pvp ? "1: Player vs. Player" : "2: Player vs. Computer");
 
-    // Initialize values (array)
-
     /*
      * Game loop
      */
     // Display board
+    printBoard();
 
     // Let player 1 move
 
@@ -42,4 +44,12 @@ int main() {
 
     // Exit
     return 0;
+}
+
+void printBoard() {
+    printf("-------\n");
+    for (int i = 0; i < 3; i++) {
+        printf("|%c|%c|%c|\n", board[i][0], board[i][1], board[i][2]);
+        printf("-------\n");
+    }
 }
