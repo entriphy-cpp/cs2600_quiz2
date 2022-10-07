@@ -4,7 +4,8 @@
 
 enum GameType { pvp, computer };
 
-char board[3][3] = {
+// [row][column]
+const char board[3][3] = {
     ' ', ' ', ' ',
     ' ', ' ', ' ',
     ' ', ' ', ' '
