@@ -10,8 +10,15 @@ int main() {
     printf("Make a selection (1 or 2): ");
 
     // Read information from console
-
+    int gameType;
+    scanf("%d", &gameType);
+    
     // Process input
+    if (gameType != 1 && gameType != 2) {
+        printf("Invalid input; exiting...");
+        return 1;
+    }
+    printf("You have entered %s\n", gameType == 1 ? "1: Player vs. Player" : "2: Player vs. Computer");
 
     // Initialize values (array)
 
