@@ -1,6 +1,7 @@
 // Tic Tac Toe game between 2 players or player vs. computer
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 enum GameType { pvp, computer };
 
@@ -38,6 +39,9 @@ int main() {
         return 1;
     }
     printf("You have entered %s\n", gameType == pvp ? "1: Player vs. Player" : "2: Player vs. Computer");
+    if (gameType == computer) {
+        srand(time(NULL)); // Set seed for random number generator
+    }
 
     /*
      * Game loop
