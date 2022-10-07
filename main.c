@@ -93,7 +93,7 @@ int checkColumn(int column, int player) {
 
 int checkDiagonals(int player) {
     char check = player == 1 ? 'X' : 'O';
-    return (board[0][0] == check && board[1][1] == check && board[2][2] == check ||
+    return (board[0][0] == check && board[1][1] == check && board[2][2] == check) ||
         (board[0][2] == check && board[1][1] == check && board[2][0] == check);
 }
 
