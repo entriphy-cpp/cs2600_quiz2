@@ -9,6 +9,8 @@ char board[3][3] = {
     ' ', ' ', ' ',
     ' ', ' ', ' '
 };
+int totalMoves = 0;
+
 void printBoard();
 void playerMove(int player);
 void computerMove();
@@ -96,6 +98,10 @@ int checkDiagonals(int player) {
 }
 
 int checkWinner(int player) {
+    if (totalMoves == 9) {
+        return -1; // Tie
+    }
+
     int rowWin = checkRow(0, player) || checkRow(1, player) || checkRow(2, player);
     int columnWin = checkColumn(0, player) || checkColumn(1, player) || checkColumn(2, player);
     int diagonalWin = checkDiagonals(player);
