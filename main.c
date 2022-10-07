@@ -46,7 +46,7 @@ int main() {
     /*
      * Game loop
      */
-    int winner = 0;
+    int winner = 0; // 0 if no winner yet, -1 if tie, player won if otherwise
 
     while (winner == 0) {
         // Display board
@@ -61,6 +61,7 @@ int main() {
 
         // Check if there's a winner
         winner = checkWinner(1);
+        if (winner != 0) break;
 
         // Let player 2 or computer move
         if (gameType == pvp) {
