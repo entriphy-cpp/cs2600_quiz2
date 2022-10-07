@@ -4,8 +4,18 @@
 
 enum GameType { pvp, computer };
 
-char board[3][3] = {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '};
+char board[3][3] = {
+    ' ', ' ', ' ',
+    ' ', ' ', ' ',
+    ' ', ' ', ' '
+};
 void printBoard();
+void playerMove(int player);
+void computerMove();
+int checkWinner(int player);
+int checkRow(int row, int player);
+int checkColumn(int column, int player);
+int checkDiagonal(int corner, int player);
 
 int main() {
     // Prompt user for game they wish to play
