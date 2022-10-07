@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+enum GameType { pvp, computer };
+
 int main() {
     // Prompt user for game they wish to play
     printf("Welcome to Tic Tac Toe!\n");
@@ -10,7 +12,7 @@ int main() {
     printf("Make a selection (1 or 2): ");
 
     // Read information from console
-    int gameType;
+    enum GameType gameType;
     scanf("%d", &gameType);
     
     // Process input
@@ -18,7 +20,7 @@ int main() {
         printf("Invalid input; exiting...");
         return 1;
     }
-    printf("You have entered %s\n", gameType == 1 ? "1: Player vs. Player" : "2: Player vs. Computer");
+    printf("You have entered %s\n", gameType == pvp ? "1: Player vs. Player" : "2: Player vs. Computer");
 
     // Initialize values (array)
 
