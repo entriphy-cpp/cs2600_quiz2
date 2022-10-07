@@ -48,12 +48,14 @@ int main() {
         printBoard();
 
         // Let player 1 move
+        playerMove(1);
+        totalMoves++;
 
         // Display board
         printBoard();
 
         // Check if there's a winner
-        checkWinner(1);
+        winner = checkWinner(1);
 
         // Let player 2 or computer move
         if (gameType == pvp) {
@@ -61,12 +63,13 @@ int main() {
         } else {
             computerMove();
         }
+        totalMoves++;
 
         // Display board
         printBoard();
 
         // Check if there's a winner
-        checkWinner(2);
+        winner = checkWinner(2);
     }
 
     // Exit
