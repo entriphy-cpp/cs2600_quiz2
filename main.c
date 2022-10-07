@@ -72,6 +72,14 @@ int main() {
         winner = checkWinner(2);
     }
 
+    // Print winner of game
+    printf("=======\n");
+    if (winner == -1) {
+        printf("TIE GAME\n");
+    } else {
+        printf("WINNER: PLAYER %d\n", winner);
+    }
+
     // Exit
     return 0;
 }
