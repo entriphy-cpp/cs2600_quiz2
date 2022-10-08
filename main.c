@@ -49,10 +49,10 @@ int main() {
      */
     int winner = 0; // 0 if no winner yet, -1 if tie, player won if otherwise
 
-    while (winner == 0) {
-        // Display board
-        printBoard();
+    // Display board
+    printBoard();
 
+    while (winner == 0) {
         // Let player 1 move
         playerMove(1);
         totalMoves++;
