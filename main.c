@@ -132,6 +132,19 @@ void playerMove(int player) {
     }
 }
 
+void computerMove() {
+    printf("COMPUTER MOVE (%c)\n", getPlayerMark(2));
+    int row = rand() % 3;
+    int column = rand() % 3;
+    while (board[row][column] != empty) {
+        row = rand() % 3;
+        column = rand() % 3;
+    }
+    board[row][column] = getPlayerMark(2);
+    printf("Row: %d\n", row + 1);
+    printf("Column: %d\n", column + 1);
+}
+
 char getPlayerMark(int player) {
     return player == 1 ? p1 : p2;
 }
