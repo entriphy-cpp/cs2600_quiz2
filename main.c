@@ -16,6 +16,7 @@ int totalMoves = 0;
 void printBoard();
 void playerMove(int player);
 void computerMove();
+char getPlayerMark(int player);
 int checkWinner(int player);
 int checkRow(int row, int player);
 int checkColumn(int column, int player);
@@ -99,7 +100,7 @@ void printBoard() {
 }
 
 void playerMove(int player) {
-    printf("PLAYER %d MOVE\n", player);
+    printf("PLAYER %d MOVE (%c)\n", player, getPlayerMark(player));
 
     int row = 0;
     while (row < 1 || row > 3) {
@@ -131,18 +132,22 @@ void playerMove(int player) {
     }
 }
 
+char getPlayerMark(int player) {
+    return player == 1 ? p1 : p2;
+}
+
 int checkRow(int row, int player) {
-    enum Mark mark = player == 1 ? p1 : p2;
+    char mark = getPlayerMark(player);
     return board[row][0] == mark && board[row][1] == mark && board[row][2] == mark;
 }
 
 int checkColumn(int column, int player) {
-    enum Mark mark = player == 1 ? p1 : p2;
+    char mark = getPlayerMark(player);
     return board[0][column] == mark && board[1][column] == mark && board[2][column] == mark;
 }
 
 int checkDiagonals(int player) {
-    enum Mark mark = player == 1 ? p1 : p2;
+    char mark = getPlayerMark(player);
     return (board[0][0] == mark && board[1][1] == mark && board[2][2] == mark) ||
         (board[0][2] == mark && board[1][1] == mark && board[2][0] == mark);
 }
