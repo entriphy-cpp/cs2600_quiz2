@@ -4,11 +4,12 @@
 #include <time.h>
 
 enum GameType { pvp, computer };
+enum Mark { empty = ' ', p1 = 'X', p2 = 'O'};
 
-char board[3][3] = {
-    ' ', ' ', ' ',
-    ' ', ' ', ' ',
-    ' ', ' ', ' '
+enum Mark board[3][3] = {
+    empty, empty, empty,
+    empty, empty, empty,
+    empty, empty, empty
 };
 int totalMoves = 0;
 
@@ -98,19 +99,19 @@ void printBoard() {
 }
 
 int checkRow(int row, int player) {
-    char check = player == 1 ? 'X' : 'O';
-    return board[row][0] == check && board[row][1] == check && board[row][2] == check;
+    enum Mark mark = player == 1 ? p1 : p2;
+    return board[row][0] == mark && board[row][1] == mark && board[row][2] == mark;
 }
 
 int checkColumn(int column, int player) {
-    char check = player == 1 ? 'X' : 'O';
-    return board[0][column] == check && board[1][column] == check && board[2][column] == check;
+    enum Mark mark = player == 1 ? p1 : p2;
+    return board[0][column] == mark && board[1][column] == mark && board[2][column] == mark;
 }
 
 int checkDiagonals(int player) {
-    char check = player == 1 ? 'X' : 'O';
-    return (board[0][0] == check && board[1][1] == check && board[2][2] == check) ||
-        (board[0][2] == check && board[1][1] == check && board[2][0] == check);
+    enum Mark mark = player == 1 ? p1 : p2;
+    return (board[0][0] == mark && board[1][1] == mark && board[2][2] == mark) ||
+        (board[0][2] == mark && board[1][1] == mark && board[2][0] == mark);
 }
 
 int checkWinner(int player) {
