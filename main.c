@@ -40,7 +40,7 @@ int main() {
     }
     printf("You have entered %s\n", gameType == pvp ? "1: Player vs. Player" : "2: Player vs. Computer");
     if (gameType == computer) {
-        srand(time(NULL)); // Set seed for random number generator
+        srand((unsigned int)time(NULL)); // Set seed for random number generator
     }
 
     /*
