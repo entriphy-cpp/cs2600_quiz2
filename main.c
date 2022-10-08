@@ -54,6 +54,7 @@ int main() {
 
     while (winner == 0) {
         // Let player 1 move
+        printf("=======\n");
         playerMove(1);
         totalMoves++;
 
@@ -65,6 +66,7 @@ int main() {
         if (winner != 0) break;
 
         // Let player 2 or computer move
+        printf("=======\n");
         if (gameType == pvp) {
             playerMove(2);
         } else {
@@ -91,6 +93,7 @@ int main() {
     return 0;
 }
 
+// Prints the board
 void printBoard() {
     printf("-------\n");
     for (int i = 0; i < 3; i++) {
@@ -99,6 +102,7 @@ void printBoard() {
     }
 }
 
+// Prompts the specified player for a row and column to place their mark
 void playerMove(int player) {
     printf("PLAYER %d MOVE (%c)\n", player, getPlayerMark(player));
 
@@ -125,13 +129,14 @@ void playerMove(int player) {
     column--;
 
     if (board[row][column] == empty) {
-        board[row][column] = player == 1 ? p1 : p2;
+        board[row][column] = getPlayerMark(player);
     } else {
         printf("There is already a mark at this position.\n");
         playerMove(player);
     }
 }
 
+// Randomly puts a mark at a location
 void computerMove() {
     printf("COMPUTER MOVE (%c)\n", getPlayerMark(2));
     int row = rand() % 3;
@@ -145,26 +150,31 @@ void computerMove() {
     printf("Column: %d\n", column + 1);
 }
 
+// Gets the mark character for the specified player (defined in Mark enum)
 char getPlayerMark(int player) {
     return player == 1 ? p1 : p2;
 }
 
+// Checks if the specified player has won by having all marks in a specific row
 int checkRow(int row, int player) {
     char mark = getPlayerMark(player);
     return board[row][0] == mark && board[row][1] == mark && board[row][2] == mark;
 }
 
+// Checks if the specified player has won by having all marks in a specific column
 int checkColumn(int column, int player) {
     char mark = getPlayerMark(player);
     return board[0][column] == mark && board[1][column] == mark && board[2][column] == mark;
 }
 
+// Checks if the player has won via 
 int checkDiagonals(int player) {
     char mark = getPlayerMark(player);
     return (board[0][0] == mark && board[1][1] == mark && board[2][2] == mark) ||
         (board[0][2] == mark && board[1][1] == mark && board[2][0] == mark);
 }
 
+// Returns 1 or 2 if the specified player won (-1 if tie, 0 if no winner)
 int checkWinner(int player) {
     if (totalMoves == 9) {
         return -1; // Tie
